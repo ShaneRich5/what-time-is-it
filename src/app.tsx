@@ -8,7 +8,6 @@ export interface CSSPropertiesWithVars extends CSSProperties {
 const TIMER_INTERVAL = 1000; // every second
 
 const App = () => {
-  const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
   const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -56,4 +55,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App
