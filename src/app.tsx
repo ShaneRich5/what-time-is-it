@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import CountDown from "./countdown";
 import Layout from "./layout";
+import { add } from "date-fns";
+
 
 const TIMER_INTERVAL = 1000; // every second
 
@@ -32,8 +34,8 @@ const App = () => {
       <div className="grid grid-cols-3 gap-4">
         <div className="card outline-1 border-2 border-black">
           <div className="card-body">
-            <h2 className="card-title">Time 1</h2>
-            <CountDown targetDate={currentDate} digitsClassNames="text-2xl"/>
+            <h2 className="card-title">3 days from now</h2>
+            <CountDown targetDate={add(currentDate, { days: 2 })} digitsClassNames="text-2xl"/>
           </div>
         </div>
       </div>

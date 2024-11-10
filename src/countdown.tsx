@@ -18,7 +18,7 @@ const CountDown: React.FC<CountDownProps> = ({ targetDate, digitsClassNames = 't
         </span>
         hours
       </div>
-      <span className="font-mono">:</span>
+      <span className={`font-mono ${digitsClassNames}`}>:</span>
       <div className="flex flex-col">
         <span className={`countdown font-mono ${digitsClassNames}`}>
           <span
@@ -29,7 +29,7 @@ const CountDown: React.FC<CountDownProps> = ({ targetDate, digitsClassNames = 't
         </span>
         min
       </div>
-      <span className="font-mono">:</span>
+      <span className={`font-mono ${digitsClassNames}`}>:</span>
       <div className="flex flex-col">
         <span className={`countdown font-mono ${digitsClassNames}`}>
           <span
