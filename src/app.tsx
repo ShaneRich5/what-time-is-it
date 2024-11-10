@@ -8,11 +8,13 @@ export interface CSSPropertiesWithVars extends CSSProperties {
 const TIMER_INTERVAL = 1000; // every second
 
 const App = () => {
-  const [date, setDate] = useState(new Date());
+  const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
+
+  const [currentDate, setCurrentDate] = useState(new Date());
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setDate(new Date());
+      setCurrentDate(new Date());
     }, TIMER_INTERVAL);
 
     return () => {
@@ -24,25 +26,27 @@ const App = () => {
     <div className="min-h-screen flex items-center justify-center">
       <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
         <div className="flex flex-col">
-          <span className="countdown font-mono text-5xl">
+          <span className="countdown font-mono text-9xl">
             <span
-              style={{ "--value": date.getHours() } as CSSPropertiesWithVars}
+              style={{ "--value": currentDate.getHours() } as CSSPropertiesWithVars}
             ></span>
           </span>
           hours
         </div>
+        <span className="font-mono text-9xl">:</span>
         <div className="flex flex-col">
-          <span className="countdown font-mono text-5xl">
+          <span className="countdown font-mono text-9xl">
             <span
-              style={{ "--value": date.getMinutes() } as CSSPropertiesWithVars}
+              style={{ "--value": currentDate.getMinutes() } as CSSPropertiesWithVars}
             ></span>
           </span>
           min
         </div>
+        <span className="font-mono text-9xl">:</span>
         <div className="flex flex-col">
-          <span className="countdown font-mono text-5xl">
+          <span className="countdown font-mono text-9xl">
             <span
-              style={{ "--value": date.getSeconds() } as CSSPropertiesWithVars}
+              style={{ "--value": currentDate.getSeconds() } as CSSPropertiesWithVars}
             ></span>
           </span>
           sec
