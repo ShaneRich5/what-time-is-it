@@ -48,3 +48,14 @@ export default tseslint.config({
   },
 })
 ```
+
+Use Cases:
+
+Real time
+- Calculates a date and time based on the current datetime and time zone.
+
+Static time
+- Calculates a date and time based on an offset from a given starting point.
+
+Relative time
+- Relative human readable time until a given datetime in a timezone.
