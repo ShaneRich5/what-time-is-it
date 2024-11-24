@@ -5,6 +5,7 @@ import Layout from "./layout";
 import { add, format, transpose } from "date-fns";
 import { tz } from "@date-fns/tz";
 import timezones from "timezones-list";
+import TimerForm from "./forms/timer-form";
 
 console.log("timezones:", timezones);
 
@@ -71,43 +72,8 @@ const App = () => {
             <div className="p-4">
               <h2 className="text-2xl font-bold">Add Countdown</h2>
               <div className="mt-4">
-                <label className="form-control w-full max-w-xs">
-                  <div className="label">
-                    <span className="label-text">Origin Date</span>
-                  </div>
-                  <input
-                    type="datetime-local"
-                    placeholder="Type here"
-                    className="input input-bordered w-full max-w-xs"
-                  />
-                  <div className="label">
-                    <span className="label-text-alt">
-                      This is starting point for the calculations below
-                    </span>
-                  </div>
-                </label>
+                <TimerForm />
 
-                {/* timezone */}
-                <label className="form-control w-full max-w-xs">
-                  <div className="label">
-                    <span className="label-text">
-                      Change your timezone
-                    </span>
-                    <span className="label-text-alt">Alt label</span>
-                  </div>
-                  <select className="select select-bordered">
-                    <option disabled selected value={Intl.DateTimeFormat().resolvedOptions().timeZone}>
-                      {Intl.DateTimeFormat().resolvedOptions().timeZone}
-                    </option>
-                    {timezones.map((timezone) => (
-                      <option value={timezone.tzCode}>{timezone.label}</option>
-                    ))}
-                  </select>
-                  <div className="label">
-                    <span className="label-text-alt">Alt label</span>
-                    <span className="label-text-alt">Alt label</span>
-                  </div>
-                </label>
 
               </div>
             </div>
