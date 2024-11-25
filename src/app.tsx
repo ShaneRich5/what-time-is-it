@@ -3,11 +3,9 @@ import { useEffect, useState } from "react";
 import CountDown from "./countdown";
 import Layout from "./layout";
 import { add, format, transpose } from "date-fns";
-import { tz } from "@date-fns/tz";
-import timezones from "timezones-list";
+import { tz, TZDate } from "@date-fns/tz";
 import TimerForm from "./forms/timer-form";
-
-console.log("timezones:", timezones);
+import { fromZonedTime, toDate, toZonedTime } from "date-fns-tz";
 
 const TIMER_INTERVAL = 1000; // every second
 
@@ -15,6 +13,33 @@ const App = () => {
   const currentTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const [currentDate, setCurrentDate] = useState(new Date());
   const [isOpenAddModal, setIsOpenAddModal] = useState(false);
+
+  useEffect(() => {
+    console.log('=======')
+    const staticDateNY = new Date('2024-11-24 10:00:00') // NY
+    // console.log(staticDateNY, 'static NY')
+
+    // const chicago1 = new TZDate(2024, 11, 24, 'America/Chicago')
+    // let chicagoWithoutTz = new Date('2024-11-24T10:00:00')
+    // console.log(chicagoWithoutTz.toString(), 'chicago w/o tz')
+    let startingDate = new Date('2024-11-24T10:00:00.000-05:00')
+
+    // let newYork = new TZDate('2024-11-24T10:00:00', 'America/New_York')
+    let chicago = new TZDate(2024, 11, 24, 10, 0, 0, 'America/Chicago')
+    // let chicago = new TZDate(startingDate, 'America/Chicago')
+    // let chicago = new TZDate('2024-11-24T10:00:00', 'America/Chicago')
+    // let chicago = fromZonedTime(new Date('2024-11-24T10:00:00Z'), 'America/Chicago')
+    let singapore = new TZDate('2024-11-24T10:00:00Z', "Asia/Singapore")
+
+    // console.log(newYork.toString(), 'new york with tz')
+    console.log(chicago.toString(), 'chicago with tz')
+    // console.log(singapore.toString(), 'singapore with tz')
+
+    chicago = add(chicago, { hours: 1 })
+    console.log(chicago.toString(), 'chicago + 1 hour')
+    let newYork = toZonedTime(chicago, 'America/New_York')
+    console.log(newYork.toString(), 'new york from chicago')
+  }, [])
 
   useEffect(() => {
     const timer = setInterval(() => {
