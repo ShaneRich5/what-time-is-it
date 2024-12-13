@@ -66,14 +66,14 @@ const App = () => {
         <Sheet.Container>
           <Sheet.Header />
           <Sheet.Content>
-            <div className="p-4">
-              <h2 className="text-2xl font-bold">Add Countdown</h2>
-              <div className="mt-4">
-                <TimerForm />
-
-
+            <Sheet.Scroller>
+              <div className="p-4">
+                <h2 className="text-2xl font-bold">Add Countdown</h2>
+                <div className="mt-4">
+                  <TimerForm />
+                </div>
               </div>
-            </div>
+            </Sheet.Scroller>
           </Sheet.Content>
         </Sheet.Container>
       </Sheet>

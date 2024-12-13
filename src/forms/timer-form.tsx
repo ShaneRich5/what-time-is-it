@@ -6,21 +6,8 @@ import { add, format, formatRelative, sub } from "date-fns";
 import { fromZonedTime, toDate, toZonedTime } from "date-fns-tz";
 import { changeTimezone } from "../utils";
 import { TZDate } from "@date-fns/tz";
+import { StaticTimer } from "../interface";
 
-type FormValues = {
-  name: string;
-  startingDateTime: string;
-  startingTimezone: string;
-  offsetModifier: string;
-  offsetYears: number;
-  offsetMonths: number;
-  offsetWeeks: number;
-  offsetDays: number;
-  offsetHours: number;
-  offsetMinutes: number;
-  offsetSeconds: number;
-  targetTimezone: string;
-};
 
 const convertToTimeZone = (dateString: string, timeZone: string) => {
   const startingDate = new Date(dateString)
@@ -39,7 +26,7 @@ const convertToTimeZone = (dateString: string, timeZone: string) => {
   return d
 };
 
-const computeTargetDate = (data: FormValues) => {
+const computeTargetDate = (data: StaticTimer) => {
   const {
     startingDateTime,
     startingTimezone,
@@ -86,7 +73,7 @@ const computeTargetDate = (data: FormValues) => {
 };
 
 const TimerForm = () => {
-  const { register, handleSubmit, control, watch } = useForm<FormValues>({
+  const { register, handleSubmit, control, watch } = useForm<StaticTimer>({
     defaultValues: {
       startingDateTime: format(new Date(), "yyyy-MM-dd'T'HH:mm"),
       startingTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
