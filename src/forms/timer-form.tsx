@@ -8,9 +8,8 @@ import { changeTimezone } from "../utils";
 import { TZDate } from "@date-fns/tz";
 import { StaticTimer } from "../interface";
 
-
 const convertToTimeZone = (dateString: string, timeZone: string) => {
-  const startingDate = new Date(dateString)
+  const startingDate = new Date(dateString);
   const d = new TZDate(
     startingDate.getFullYear(),
     startingDate.getMonth(),
@@ -19,11 +18,11 @@ const convertToTimeZone = (dateString: string, timeZone: string) => {
     startingDate.getMinutes(),
     startingDate.getSeconds(),
     timeZone
-  )
+  );
 
-  console.log(d, d.toString(), 'd')
+  console.log(d, d.toString(), "d");
 
-  return d
+  return d;
 };
 
 const computeTargetDate = (data: StaticTimer) => {
@@ -69,7 +68,6 @@ const computeTargetDate = (data: StaticTimer) => {
   // console.log("target:", target.toString());
   // return toZonedTime(target, data.targetTimezone);
   // return toDate(target, data.targetTimezone);
-
 };
 
 const TimerForm = () => {
@@ -346,6 +344,10 @@ const TimerForm = () => {
                   </span>
                 </div>
               </label>
+            </div>
+
+            <div className="card-actions justify-end">
+              <button className="btn btn-primary">Save</button>
             </div>
 
             {/* <label className="form-control w-full max-w-xs">
