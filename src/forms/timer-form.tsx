@@ -109,7 +109,7 @@ const TimerForm = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div className="card shadow">
+        <div className="card shadow-sm">
           <div className="card-body">
             <div className="card-title">Starting Point</div>
 
@@ -192,7 +192,7 @@ const TimerForm = () => {
           </div>
         </div>
 
-        <div className="card shadow">
+        <div className="card shadow-sm">
           <div className="card-body">
             <div className="card-title">Date Offset</div>
             <div className="flex space-x-4">
@@ -248,7 +248,7 @@ const TimerForm = () => {
           </div>
         </div>
 
-        <div className="card shadow">
+        <div className="card shadow-sm">
           <div className="card-body">
             <div className="card-title">Time Offset</div>
             <div className="flex space-x-4">
@@ -294,7 +294,7 @@ const TimerForm = () => {
           </div>
         </div>
 
-        <div className="card shadow">
+        <div className="card shadow-sm">
           <div className="card-body">
             <div className="card-title">Target Date Time</div>
             {targetDate.toString()}
